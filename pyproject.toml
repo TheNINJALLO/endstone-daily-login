@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "endstone-daily-login"
+version = "2.7.1"
+description = "Daily login rewards plugin for Endstone Minecraft Bedrock servers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "LEEFY" },
+    { name = "Endstone Port" }
+]
+keywords = ["endstone", "minecraft", "bedrock", "plugin", "daily-login", "rewards"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "endstone>=0.11.8,<0.12"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/endstone-daily-login"
+
+[project.entry-points."endstone"]
+daily_login = "endstone_daily_login:DailyLoginPlugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/endstone_daily_login"]

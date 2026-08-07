@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Login Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <h1>🎁 Daily Login</h1>
+            <p>Enter password to access admin panel</p>
+            <input type="password" id="password-input" placeholder="Password" autofocus>
+            <button id="login-btn" onclick="login()">Login</button>
+            <p id="login-error" class="error hidden"></p>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="hidden">
+        <header>
+            <h1>🎁 Daily Login Admin</h1>
+            <button class="btn-secondary" onclick="logout()">Logout</button>
+        </header>
+
+        <nav>
+            <button class="tab active" data-tab="money">💰 Money</button>
+            <button class="tab" data-tab="items">📦 Items</button>
+            <button class="tab" data-tab="structures">🏗️ Structures</button>
+            <button class="tab" data-tab="settings">⚙️ Settings</button>
+            <button class="tab" data-tab="players">👥 Players</button>
+        </nav>
+
+        <!-- Money Tab -->
+        <section id="money-tab" class="tab-content active">
+            <div class="card">
+                <h2>Money Rewards</h2>
+                <div class="toggle-row">
+                    <label>
+                        <input type="checkbox" id="money-enabled"> Enabled
+                    </label>
+                    <label>
+                        <input type="checkbox" id="money-randomize"> Randomize
+                    </label>
+                </div>
+                <div id="money-amounts">
+                    <!-- Dynamic amount inputs -->
+                </div>
+                <button class="btn-secondary" onclick="addMoneyAmount()">+ Add Amount</button>
+                <button class="btn-primary" onclick="saveMoney()">Save Money Settings</button>
+            </div>
+        </section>
+
+        <!-- Items Tab -->
+        <section id="items-tab" class="tab-content">
+            <div class="card">
+                <h2>Item Rewards</h2>
+                <div class="toggle-row">
+                    <label>
+                        <input type="checkbox" id="items-enabled"> Enabled
+                    </label>
+                    <label>
+                        <input type="checkbox" id="items-randomize"> Randomize
+                    </label>
+                </div>
+                <div id="items-list">
+                    <!-- Dynamic item inputs -->
+                </div>
+                <div class="add-item-row">
+                    <input type="text" id="new-item-input" placeholder="minecraft:diamond_sword">
+                    <button class="btn-secondary" onclick="addItem()">+ Add Item</button>
+                </div>
+                <button class="btn-primary" onclick="saveItems()">Save Item Settings</button>
+            </div>
+        </section>
+
+        <!-- Structures Tab -->
+        <section id="structures-tab" class="tab-content">
+            <div class="card">
+                <h2>Structure Rewards</h2>
+                <div class="toggle-row">
+                    <label>
+                        <input type="checkbox" id="structures-enabled"> Enabled
+                    </label>
+                    <label>
+                        <input type="checkbox" id="structures-randomize"> Randomize
+                    </label>
+                </div>
+                <div id="structures-list">
+                    <!-- Dynamic structure inputs -->
+                </div>
+                <button class="btn-secondary" onclick="addStructure()">+ Add Structure</button>
+                <button class="btn-primary" onclick="saveStructures()">Save Structure Settings</button>
+            </div>
+        </section>
+
+        <!-- Settings Tab -->
+        <section id="settings-tab" class="tab-content">
+            <div class="card">
+                <h2>Form Triggers</h2>
+                <div class="form-group">
+                    <label>Admin Item</label>
+                    <input type="text" id="admin-item" placeholder="minecraft:compass">
+                </div>
+                <div class="form-group">
+                    <label>Claim Item</label>
+                    <input type="text" id="claim-item" placeholder="minecraft:stick">
+                </div>
+                <div class="form-group">
+                    <label>Entity Tag</label>
+                    <input type="text" id="entity-tag" placeholder="daily_login">
+                </div>
+                <div class="form-group">
+                    <label>Interaction Type</label>
+                    <select id="interaction-type">
+                        <option value="Hit">Hit</option>
+                        <option value="Interact">Interact</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+                <button class="btn-primary" onclick="saveFormConfig()">Save Form Config</button>
+            </div>
+
+            <div class="card">
+                <h2>Scoreboard</h2>
+                <div class="form-group">
+                    <label>Money Objective</label>
+                    <input type="text" id="currency-obj" placeholder="money">
+                </div>
+                <button class="btn-primary" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </section>
+
+        <!-- Players Tab -->
+        <section id="players-tab" class="tab-content">
+            <div class="card">
+                <h2>Player Management</h2>
+                <button class="btn-secondary" onclick="loadPlayers()">🔄 Refresh</button>
+                <table id="players-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Streak</th>
+                            <th>Longest</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="players-body">
+                        <!-- Dynamic player rows -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Enchantment Modal -->
+    <div id="enchant-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Configure Enchantments</h3>
+            <p id="enchant-item-name"></p>
+            <div id="enchant-list">
+                <!-- Dynamic enchantment controls -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeEnchantModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveEnchantments()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
