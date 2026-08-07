@@ -20,8 +20,9 @@
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> &bull;
-  <a href="#compatibility">Compatibility</a> &bull;
+  <a href="#what-it-does">What it does</a> &bull;
+  <a href="#how-to-use">How to use</a> &bull;
+  <a href="#commands-and-permissions">Commands</a> &bull;
   <a href="#install">Install</a> &bull;
   <a href="https://github.com/TheNINJALLO/endstone-daily-login/releases">Releases</a>
 </p>
@@ -30,9 +31,23 @@
 
 Daily login rewards plugin for Endstone Minecraft Bedrock servers. This release is aligned with Endstone 0.11.8 and Minecraft Bedrock Dedicated Server 1.26.40, and is distributed as a Python wheel for direct installation in an Endstone server.
 
-## Capabilities
+## What it does
 
--
+- Tracks consecutive logins and grants configurable daily rewards.
+- Supports in-game administration, entity interaction, and an optional web dashboard.
+- Stores reward and claim state persistently so players cannot claim the same day twice.
+
+## How to use
+
+1. Start once, then configure the reward calendar and optional interaction entity in the plugin data folder or admin form.
+2. Set `ENDSTONE_DAILY_LOGIN_WEB_PASSWORD` before enabling the web dashboard; leave the dashboard disabled when it is not needed.
+3. Operators open `/dailylogin` (aliases `/dl` and `/dailyreward`) to administer rewards; normal claims occur through the configured login/interaction flow.
+
+## Commands and permissions
+
+| Command / usage | What it does | Access |
+|---|---|---|
+| `/dailylogin`<br><sub>Aliases: `/dl`, `/dailyreward`</sub> | Open daily login admin panel | `dailylogin.admin` |
 
 ## Compatibility
 
