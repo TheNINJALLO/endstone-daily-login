@@ -24,7 +24,7 @@ class DailyLoginPlugin(Plugin):
     
     # Plugin metadata
     
-    version = "2.7.1"
+    version = "2.7.2"
     description = "Daily login rewards with streak tracking"
     authors = ["LEEFY", "Endstone Port"]
     
