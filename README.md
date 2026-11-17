@@ -1,3 +1,7 @@
+[Download compatibility release v2.7.4](https://github.com/TheNINJALLO/endstone-daily-login/releases/tag/v2.7.4).
+
+> Compatibility release **2.7.4** targets **Endstone 0.11.16 / BDS 1.26.65.1**, protocol **2225**, Python **3.11+**. This release contains the SDK compatibility update; existing local feature drafts are retained separately.
+
 <!-- endstone-professional-header:start -->
 <p align="center">
   <img src="docs/assets/banner.svg" width="100%" alt="Endstone Daily Login &mdash; Daily login rewards plugin for Endstone Minecraft Bedrock servers">

@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "endstone-daily-login"
-version = "2.7.2"
+version = "2.7.4"
 description = "Daily login rewards plugin for Endstone Minecraft Bedrock servers"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = "MIT"
 authors = [
     { name = "LEEFY" },
@@ -23,7 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "endstone>=0.11.9,<0.12"
+    "endstone>=0.11.16,<0.12"
 ]
 
 [project.urls]
